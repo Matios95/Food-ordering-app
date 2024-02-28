@@ -3,6 +3,8 @@ package matek.pl.infrastructure.database.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.Set;
+
 @Getter
 @Setter
 @EqualsAndHashCode(of = "ownerId")
@@ -27,4 +29,7 @@ public class OwnerEntity {
 
     @Column(name = "surname")
     private String surname;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "owner")
+    private Set<PlaceEntity> placeEntities;
 }

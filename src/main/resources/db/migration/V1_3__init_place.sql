@@ -5,7 +5,6 @@ CREATE TABLE place
     name        VARCHAR(32) NOT NULL,
     owner_id    INT         NOT NULL,
     address_id  INT         NOT NULL,
-    product_id  INT         NOT NULL,
     PRIMARY KEY (place_id),
     UNIQUE(phone),
     CONSTRAINT fk_place_owner
@@ -13,8 +12,5 @@ CREATE TABLE place
             REFERENCES owner (owner_id),
     CONSTRAINT fk_place_address
         FOREIGN KEY (address_id)
-            REFERENCES address (address_id),
-    CONSTRAINT fk_place_product
-        FOREIGN KEY (product_id)
-            REFERENCES product (product_id)
+            REFERENCES address (address_id)
 )

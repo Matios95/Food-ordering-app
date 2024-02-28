@@ -3,10 +3,12 @@ package matek.pl.infrastructure.database.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.Set;
+
 @Getter
 @Setter
 @EqualsAndHashCode(of = "placeId")
-@ToString(of = {"placeId", "phone", "name", "ownerId", "addressId", "productId"})
+@ToString(of = {"placeId", "phone", "name"})
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
@@ -25,12 +27,14 @@ public class PlaceEntity {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "owner_id")
-    private Integer ownerId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "owner_id")
+    private OwnerEntity owner;
 
-    @Column(name = "address_id")
-    private Integer addressId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "address_id")
+    private AddressEntity addressPlace;
 
-    @Column(name = "product_id")
-    private Integer productId;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "place")
+    private Set<ProductEntity> productEntities;
 }

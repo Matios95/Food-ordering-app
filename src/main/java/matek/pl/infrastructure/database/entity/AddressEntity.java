@@ -3,6 +3,8 @@ package matek.pl.infrastructure.database.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.Set;
+
 @Getter
 @Setter
 @EqualsAndHashCode(of = "addressId")
@@ -30,4 +32,10 @@ public class AddressEntity {
 
     @Column(name="street_number")
     private Integer streetNumber;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "addressPlace")
+    private Set<PlaceEntity> placeEntities;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "addressCustomer")
+    private Set<CustomerEntity> customerEntities;
 }

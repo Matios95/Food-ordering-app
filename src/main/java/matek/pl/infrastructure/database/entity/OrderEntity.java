@@ -4,11 +4,12 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Getter
 @Setter
 @EqualsAndHashCode(of = "orderaId")
-@ToString(of = {"orderaId", "orderaCode", "productId", "datetime"})
+@ToString(of = {"orderaId", "orderaCode", "quantity"})
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
@@ -24,10 +25,14 @@ public class OrderEntity {
     @Column(name = "ordera_code", unique = true)
     private Integer orderaCode;
 
-    @Column(name = "product_id")
-    private Integer productId;
+    @Column(name = "quantity")
+    private Integer quantity;
 
-    @Column(name = "datetime")
-    private LocalDateTime datetime;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "food_ordering_request_id")
+    private FoodOrderingRequestEntity foodOrderingRequestEntity;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "product_id")
+    private ProductEntity product;
 }

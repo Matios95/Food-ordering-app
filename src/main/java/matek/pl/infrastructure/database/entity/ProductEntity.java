@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.math.BigDecimal;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -21,11 +22,12 @@ public class ProductEntity {
     @Column(name = "product_id")
     private Integer productId;
 
-    @Column(name = "product_code")
+    @Column(name = "product_code", unique = true)
     private String productCode;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "type")
-    private String type;
+    private ProductType type;
 
     @Column(name = "name")
     private String name;
@@ -35,4 +37,11 @@ public class ProductEntity {
 
     @Column(name = "price")
     private BigDecimal price;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "product")
+    private Set<OrderEntity> orderEntities;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "place_id")
+    private PlaceEntity place;
 }
