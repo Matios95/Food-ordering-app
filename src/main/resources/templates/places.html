@@ -27,13 +27,13 @@
             </tr>
             </thead>
             <tbody>
-            <tr th:each="car : ${tg}">
-                <td th:text="${car.vin}"></td>
-                <td th:text="${car.brand}"></td>
-                <td th:text="${car.model}"></td>
-                <td th:text="${car.year}"></td>
-                <td th:text="${car.color}"></td>
-                <td th:text="${car.price}"></td>
+            <tr th:each="place : ${availablePlaceDTOs}">
+                <td th:text="${place.name}"></td>
+                <td th:text="${place.phone}"></td>
+                <td th:text="${place.address.country}"></td>
+                <td th:text="${place.address.postcode}"></td>
+                <td th:text="${place.address.street}"></td>
+                <td th:text="${place.address.streetNumber}"></td>
             </tr>
             </tbody>
         </table>

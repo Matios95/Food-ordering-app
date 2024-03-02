@@ -13,4 +13,17 @@ public class PlaceDTO {
 
     private String phone;
     private String name;
+    private AddressDTO address;
+
+    @Data
+    @Builder
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class AddressDTO {
+        private Integer addressId;
+        private String country;
+        private String postcode;
+        private String street;
+        private Integer streetNumber;
+    }
 }

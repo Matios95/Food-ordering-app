@@ -17,7 +17,5 @@ public class Place {
     Integer placeId;
     String phone;
     String name;
-    OwnerEntity owner;
-    AddressEntity addressPlace;
-    Set<ProductEntity> productEntities;
+    Address addressPlace;
 }
