@@ -1,18 +1,20 @@
 package matek.pl.domain;
 
-import jakarta.persistence.Column;
+import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.Set;
 
 @With
 @Value
 @Builder
-@EqualsAndHashCode(of = "phone")
-@ToString(of = {"addressId", "country", "postcode","street","streetNumber"})
+@ToString(of = {"addressId", "country", "postcode", "streetNumber"})
 public class Address {
-
-   Integer addressId;
-   String country;
-   String postcode;
-   String street;
-   Integer streetNumber;
+    Integer addressId;
+    String country;
+    String postcode;
+    String street;
+    Integer streetNumber;
+    Set<Place> places;
+    Set<Customer> customers;
 }

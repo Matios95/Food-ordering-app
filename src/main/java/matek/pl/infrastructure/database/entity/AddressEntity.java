@@ -18,19 +18,19 @@ public class AddressEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="address_id")
+    @Column(name = "address_id")
     private Integer addressId;
 
-    @Column(name="country")
+    @Column(name = "country")
     private String country;
 
-    @Column(name="postcode")
+    @Column(name = "postcode")
     private String postcode;
 
-    @Column(name="street")
+    @Column(name = "street")
     private String street;
 
-    @Column(name="street_number")
+    @Column(name = "street_number")
     private Integer streetNumber;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "addressPlace")

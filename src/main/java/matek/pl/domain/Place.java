@@ -1,9 +1,6 @@
 package matek.pl.domain;
 
 import lombok.*;
-import matek.pl.infrastructure.database.entity.AddressEntity;
-import matek.pl.infrastructure.database.entity.OwnerEntity;
-import matek.pl.infrastructure.database.entity.ProductEntity;
 
 import java.util.Set;
 
@@ -13,9 +10,10 @@ import java.util.Set;
 @EqualsAndHashCode(of = "phone")
 @ToString(of = {"placeId", "phone", "name"})
 public class Place {
-
     Integer placeId;
     String phone;
     String name;
-    Address addressPlace;
+    Owner owner;
+    Address address;
+    Set<Product> products;
 }

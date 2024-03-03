@@ -23,11 +23,11 @@ public class PlaceController {
 
     @GetMapping(value = PLACE_LIST)
     public String placesList(Model model) {
-        var availablePlaces = placeService.findAvailablePlaces().stream()
-                .map(placeMapper::map)
-                .toList();
-
-        model.addAttribute("availablePlaceDTOs", availablePlaces);
+//        var availablePlaces = placeService.findAvailablePlaces().stream()
+//                .map(placeMapper::map)
+//                .toList();
+//
+//        model.addAttribute("availablePlaceDTOs", availablePlaces);
         return "places";
     }
 

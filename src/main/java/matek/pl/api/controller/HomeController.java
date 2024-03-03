@@ -1,6 +1,5 @@
 package matek.pl.api.controller;
 
-import jakarta.persistence.Access;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,17 +15,17 @@ public class HomeController {
     static final String CUSTOMER = "/customer";
 
     @RequestMapping(value = HOME, method = RequestMethod.GET)
-    public String homePage(){
+    public String homePage() {
         return "home";
     }
 
     @GetMapping(value = OWNER)
-    public String owner(){
+    public String owner() {
         return "owner";
     }
 
     @GetMapping(value = CUSTOMER)
-    public String customer(){
+    public String customer() {
         return "customer";
     }
 }
